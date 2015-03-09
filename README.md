@@ -14,4 +14,6 @@ or by installing those packages before installing lutim (prefer the first soluti
 
 TODO
 ----
-Allow accessing uploaded image only without credentials, but upload an image requires yunohost login (in case of private app).
+
+- Allow accessing uploaded image only without credentials, but upload an image requires yunohost login (in case of private app).
+- cronjobs to check size of folder (in case if bigger than max size in conf file)
