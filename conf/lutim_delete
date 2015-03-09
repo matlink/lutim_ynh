@@ -1,0 +1,4 @@
+#! /bin/bash
+# Delete expired files
+cd /var/www/lutim/ && carton exec script/lutim cron cleanfiles
+exit 0;

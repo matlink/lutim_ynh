@@ -1,0 +1,4 @@
+#! /bin/bash
+# Delete IP adresses from database if expired
+cd /var/www/lutim/ && carton exec script/lutim cron cleanbdd
+exit 0;

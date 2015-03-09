@@ -1,0 +1,4 @@
+#! /bin/bash
+# Statistics
+cd /var/www/lutim/ && carton exec script/lutim cron stats && service lutim restart;
+exit 0;

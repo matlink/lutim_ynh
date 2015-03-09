@@ -1,0 +1,4 @@
+#! /bin/bash
+# Watch the size of the files directory every 10 mins, to avoid spammer
+*/10 * * * * root cd /var/www/lutim/ && carton exec script/lutim cron watch
+exit 0;

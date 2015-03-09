@@ -80,6 +80,12 @@ sudo chown root:root /etc/init.d/lutim /etc/default/lutim
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 sudo sed -i "s/YUNOHOST_PORT/$port/g" /etc/nginx/conf.d/$domain.d/$app.conf
 
+# Installing cronjobs
+sudo cp ../conf/lutim_{cleanbdd,delete,stats} /etc/cron.hourly/
+sudo chmod 755 /etc/cron.hourly/lutim_{cleanbdd,delete,stats}
+sudo cp ../conf/lutim_watch /etc/cron.d/
+sudo chmod 644 /etc/cron.d/lutim_watch
+
 # Starting lutim service
 sudo service lutim start
 # Adding access for admin
