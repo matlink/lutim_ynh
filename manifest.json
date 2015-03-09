@@ -1,0 +1,54 @@
+{
+    "name": "Lutim",
+    "id": "lutim",
+    "description": {
+        "en": "Images self hosting application",
+        "fr": "Application d'upload d'images "
+    },
+    "developer": {
+        "name": "matlink",
+        "email": "matlink@matlink.fr",
+        "url": "https://matlink.fr"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for lutim",
+                    "fr": "Choisissez un domaine pour lutim"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for lutim",
+                    "fr": "Choisissez un chemin pour lutim"
+                },
+                "example": "/lutim",
+                "default": "/lutim"
+            },
+            {
+                "name": "admin",
+                "ask": {
+                    "en": "Choose an admin user for lutim",
+                    "fr": "Choisissez un administrateur pour lutim"
+                },
+                "example": "homer"
+            },
+            {
+                "name": "public_site",
+                "ask": {
+                    "en": "Should this application be public ?",
+                    "fr": "Est-ce que cette application doit être visible publiquement ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "No"
+            }
+
+
+        ]
+    }
+}
