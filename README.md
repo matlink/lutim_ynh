@@ -1,5 +1,5 @@
 # lutim_ynh
-Base on this french tutorial : http://framacloud.org/cultiver-son-jardin/installation-de-lutim/
+Based on this french tutorial : http://framacloud.org/cultiver-son-jardin/installation-de-lutim/
 
 # Installation can be very long
 To prevent any issue, install it via command line (SSH) using : 
