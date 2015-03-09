@@ -1,4 +1,5 @@
 # lutim_ynh
+Not working for now !
 Based on this french tutorial : http://framacloud.org/cultiver-son-jardin/installation-de-lutim/
 
 # Installation can be very long
