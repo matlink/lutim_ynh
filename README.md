@@ -11,3 +11,7 @@ or by installing those packages before installing lutim (prefer the first soluti
 	sudo cpan Carton
 	wget https://github.com/ldidry/lutim/raw/master/cpanfile
 	sudo carton install
+
+TODO
+----
+Allow accessing uploaded image only without credentials, but upload an image requires yunohost login (in case of private app).
