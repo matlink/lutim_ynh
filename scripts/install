@@ -64,11 +64,11 @@ sudo sh -c 'cd /var/www/lutim/ && sudo carton install'
 
 # Configuring lutil with given settings
 sudo cp ../conf/lutim.conf.template $conff
-sudo sed -i "s/YUNOHOST_PORT/$port/g" $conff
-sudo sed -i "s/YUNOHOST_CONTACT/$admin@$domain/g" $conff
+sudo sed -i "s,YUNOHOST_PORT,$port,g" $conff
+sudo sed -i "s,YUNOHOST_CONTACT,$admin@$domain,g" $conff
 secret=$(dd if=/dev/urandom bs=1 count=200 2> /dev/null | tr -c -d '[A-Za-z0-9]' | sed -n 's/\(.\{24\}\).*/\1/p')
-sudo sed -i "s/YUNOHOST_SECRET/$secret/g" $conff
-sudo sed -i "s/YUNOHOST_PATH/$path/g" $conff
+sudo sed -i "s,YUNOHOST_SECRET,$secret,g" $conff
+sudo sed -i "s,YUNOHOST_PATH,$path/g" $conff
 
 # Copying service files
 sudo cp $final_path/utilities/lutim.init /etc/init.d/lutim
@@ -78,8 +78,8 @@ sudo chown root:root /etc/init.d/lutim /etc/default/lutim
 
 # Configuring nginx
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s/YUNOHOST_PORT/$port/g" /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s/YUNOHOST_PATH/$path/g" /etc/nginx/conf.d/$domain.d/$app.conf
+sudo sed -i "s,YUNOHOST_PATH,$path,g" /etc/nginx/conf.d/$domain.d/$app.conf
+sudo sed -i "s,YUNOHOST_PORT,$port,g" /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Installing cronjobs
 sudo cp ../conf/lutim_{cleanbdd,delete,stats} /etc/cron.hourly/
@@ -96,6 +96,13 @@ sudo yunohost app addaccess $app -u $admin
 if [ "$is_public" = "Yes" ];
 then
 	sudo yunohost app setting $app skipped_uris -v "/"
+else
+	sudo yunohost app setting $app protected_regex -v "$domain/$path/stats\$"
+	sudo yunohost app setting $app protected_regex -v "$domain/$path/manifest.webapp\$"
+	sudo yunohost app setting $app protected_regex -v "$domain/$path/\$"
+	sudo yunohost app setting $app protected_regex -v "$domain/$path\$"
+	sudo yunohost app setting $app protected_regex -v "$domain/$path/d/.*\$"
+	sudo yunohost app setting $app protected_regex -v "$domain/$path/m/.*\$"
 fi
 
 sudo chown lutim:lutim -R $final_path
