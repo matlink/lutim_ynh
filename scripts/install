@@ -79,6 +79,7 @@ sudo chown root:root /etc/init.d/lutim /etc/default/lutim
 # Configuring nginx
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 sudo sed -i "s/YUNOHOST_PORT/$port/g" /etc/nginx/conf.d/$domain.d/$app.conf
+sudo sed -i "s/YUNOHOST_PATH/$path/g" /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Installing cronjobs
 sudo cp ../conf/lutim_{cleanbdd,delete,stats} /etc/cron.hourly/
