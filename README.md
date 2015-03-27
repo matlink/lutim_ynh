@@ -1,3 +1,6 @@
+# Please see https://github.com/maniackcrudelis/lutim_ynh as this is the merged repo of this one and Maniack's one
+# Integration is better on the maniack's repo, this one will not be longer maintained.
+
 # lutim_ynh
 Based on this french tutorial : http://framacloud.org/cultiver-son-jardin/installation-de-lutim/
 
